@@ -1,0 +1,14 @@
+.card{
+    text-align: center;
+    height: 250px;
+    width: 150px;
+    background-color: purple;
+    margin: 20px;
+}
+.card-con{
+    padding: 10px;
+
+    display: flex;
+    justify-content: flex-start;
+}
+
