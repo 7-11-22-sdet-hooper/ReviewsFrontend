@@ -1,14 +1,70 @@
-.card{
-    text-align: center;
-    height: 250px;
-    width: 150px;
-    background-color: purple;
-    margin: 20px;
-}
+
 .card-con{
-    padding: 10px;
+    /* padding: 10px; */
+    min-width: 0;
 
     display: flex;
+    width: min-content;
+    height: min-content;
     justify-content: flex-start;
 }
 
+.card{
+   
+    height: 230px;
+    width: 200px;
+    background-color: purple;
+    background: linear-gradient(130deg ,#9F42E9, #7301CE);
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: -1rem 0 3rem #000;
+
+    
+}
+
+.card-def{
+    text-align: center;
+}
+
+.card-keyword{
+    opacity: 80%;
+    text-align: left;
+    margin-left: 5px;
+}
+
+.big-circle{
+    pointer-events:none; 
+    position: absolute;
+    border-radius: 100px;
+    opacity: 40%;
+ align-self: center;
+ margin-left: 5px;
+ margin-top: 5px;
+    background-color: white;
+    width: 120px;
+    height: 120px;
+}
+.med-circle{
+    pointer-events:none; 
+    position: absolute;
+    border-radius: 100px;
+    opacity: 30%;
+ align-self: center;
+ margin-left: 100px;
+ margin-top: 105px;
+    background-color: white;
+    width: 90px;
+    height: 90px;
+}
+.small-circle{
+    pointer-events:none; 
+    position: absolute;
+    border-radius: 100px;
+    opacity: 30%;
+ align-self: center;
+ margin-left: 50px;
+ margin-top: 160px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+}

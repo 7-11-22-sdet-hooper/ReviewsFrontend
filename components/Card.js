@@ -29,8 +29,8 @@ const Card = () =>{
             },
            
     ]
-
     setVocabData([...data])
+    // console.log(...vocabData.category)
 
     },[])
 
@@ -48,17 +48,19 @@ const Card = () =>{
 
     return(
         <div className="card-con"  >
-            {/* <h1>Boolean</h1>
-
-           {showAns ?  <p>True/False</p> : ''}  */}
+   
 
             {vocabData.map(keys => {
-                // console.log(keys)
                 return(
                     <div className="card" onClick={toggleCard} id={keys.id}>
-                        <h1>{keys.keyword}</h1>
 
-                        <p>{cardId == keys.id ?  keys.def : ''} </p>
+                        <div className="big-circle"/>
+                        <div className="med-circle"/>
+                        <div className="small-circle"/>
+
+                        <h1 className="card-keyword">{keys.keyword}</h1>
+
+                        <p className="card-def">{cardId == keys.id ?  keys.def : ''} </p>
                     </div>
                 )
             })}
