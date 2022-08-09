@@ -49,7 +49,7 @@ const Card = () =>{
     return(
         <div className="card-con"  >
    
-
+        
             {vocabData.map(keys => {
                 return(
                     <div className="card" key={keys.keyword + keys.id} onClick={toggleCard} id={keys.id}>
