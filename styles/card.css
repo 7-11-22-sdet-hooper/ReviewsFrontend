@@ -6,11 +6,14 @@
 }
 .card-con{
     min-width: 0;
+    position: relative;
 
     display: flex;
-    width: min-content;
-    height: min-content;
+    width: 100%;
+    height: 100%;
     justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .card{
@@ -80,7 +83,7 @@
      background-image: radial-gradient( var(--primary) 5px, transparent 6px);
     
      background-size: 60px 60px;
-     background-position: right;
+     background-position:center;
 
      transition: background-position ease 10s;
 }
