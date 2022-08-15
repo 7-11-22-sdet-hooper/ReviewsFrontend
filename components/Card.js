@@ -10,31 +10,6 @@ const Card = () => {
 
     useEffect(() => {
 
-
-        const data = [
-            {
-                category: 'basic',
-                keyword: 'boolean',
-                def: 'logical data type that can have only the values true or false',
-                id: 1
-            },
-            {
-                category: 'basic',
-                keyword: 'string',
-                def: 'series of characters that are interpreted literally by a script',
-                id: 2
-            },
-            {
-                category: 'basic',
-                keyword: 'integer',
-                def: "numbers without a fractional component, and don't support decimal points",
-                id: 3
-            },
-
-        ]
-        setVocabData([...data])
-        // console.log(...vocabData.category)
-
         axios.get('http://137.184.139.89/vocab', 
         {
             headers: 
@@ -42,12 +17,15 @@ const Card = () => {
             "Access-Control-Allow-Origin": "*",
             }
     })
-        .then(data =>{
-            console.log(data)
+        .then(res =>{
+            setVocabData([...res.data])
+            console.log(res)
         })
         .catch(err =>{
             console.log(err)
         })
+
+
     }, [])
 
     const toggleCard = (e) => {
@@ -67,33 +45,33 @@ const Card = () => {
             
             {vocabData.map(keys => {
                 return (
-                    <div className="card" key={keys.keyword + keys.id + ''} onClick={toggleCard} id={keys.id}>
+                    <div className="card" key={keys.word + keys.vocab_id + ''} onClick={toggleCard} id={keys.vocab_id}>
 
 
-                        {cardId == keys.id ? '' :
+                        {cardId == keys.vocab_id ? '' :
                             <div className="card-keyword-con">
 
-                                <h1 className={cardId == keys.id ? "card-active card-keyword" : 'card-keyword'}>{keys.keyword}</h1>
+                                <h1 className={cardId == keys.vocab_id ? "card-active card-keyword" : 'card-keyword'}>{keys.word}</h1>
 
                             </div>
                         }
 
 
-                        <div className={cardId == keys.id ? "active-circle-con" : 'circle-con'}>
+                        <div className={cardId == keys.vocab_id ? "active-circle-con" : 'circle-con'}>
 
 
-                            <div className={cardId == keys.id ? "active-circle" : 'big-circle'}>
+                            <div className={cardId == keys.vocab_id ? "active-circle" : 'big-circle'}>
                             {/* <HiOutlineArrowRight className="circle-arrow"/> */}
-                            {cardId == keys.id ? 
+                            {cardId == keys.vocab_id ? 
                             <div className="card-keyword-con">
 
-                                <h1 className="card-active-keyword card-keyword" >{keys.keyword}</h1>
+                                <h1 className="card-active-keyword card-keyword" >{keys.word}</h1>
 
                             </div> : ''
 
                             }
                             </div>
-                            <p className="card-def">{cardId == keys.id ? keys.def : ''} </p>
+                            <p className="card-def">{cardId == keys.vocab_id ? keys.wordDefinition : ''} </p>
 
                         </div>
 
