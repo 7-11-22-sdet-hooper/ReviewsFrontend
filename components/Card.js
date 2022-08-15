@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react"
 
 import { HiOutlineArrowRight } from "react-icons/hi";
@@ -34,6 +35,19 @@ const Card = () => {
         setVocabData([...data])
         // console.log(...vocabData.category)
 
+        axios.get('http://137.184.139.89/vocab', 
+        {
+            headers: 
+            {
+            "Access-Control-Allow-Origin": "*",
+            }
+    })
+        .then(data =>{
+            console.log(data)
+        })
+        .catch(err =>{
+            console.log(err)
+        })
     }, [])
 
     const toggleCard = (e) => {
