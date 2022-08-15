@@ -2,13 +2,15 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    color: white;
+  font-family: Poppins;
+  color: #e7e9ea;
     background: #161618;
 
     height: 100%;
     width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
 }
 
 a {
@@ -25,7 +27,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
+    color: #e7e9ea;
     background: #161618;
   }
 }

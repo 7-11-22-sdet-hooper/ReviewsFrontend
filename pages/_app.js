@@ -1,10 +1,11 @@
 import '../styles/globals.css'
 import '../styles/dashboard.css'
 import '../styles/card.css'
-import Dashboard from './Dashboard'
+import '../styles/sidebar.css'
+import '../styles/account.css'
 
 function MyApp({ Component, pageProps }) {
-  return <Dashboard />
+  return <Component {...pageProps} />
 }
 
 export default MyApp

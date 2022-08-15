@@ -5,7 +5,9 @@
 }
 
 .dashboard-card-con{
-
+    position: absolute;
     display: flex;
     margin: 20px;
+    width: calc(100% - 240px);
+    left: 240px;
 }

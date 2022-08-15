@@ -1,0 +1,214 @@
+:root{
+    --primary: #9F42E9;
+    --secondary: #b267ed;
+    --dark: #161618;
+    --light: #222225;
+}
+
+.account-con{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account-form-con{
+    position: relative;
+    background-color: var(--light);
+    width: 1000px;
+    height: 650px;
+
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+
+}
+.account-form-left-con{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    /* background-color: var(--primary); */
+    float: left;
+
+}
+.account-form-curve{
+    position: absolute;
+    aspect-ratio: 700/600;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    background-image: url('../public/wave.svg');
+
+    width: 150%;
+}
+
+.account-form-input-con{
+    position: relative;
+    width: 50%;
+    float: right;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.account-form-header-con{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-bottom: 0;
+    margin-top: 10px;
+    justify-content: center;
+    text-align: center;
+    justify-content: center;
+    /* top: 0; */
+}
+.account-form-header-con h1{
+    position: relative; 
+    align-self: center;
+    justify-self: center;
+    margin: 0;
+    z-index: 1;
+    /* color: var(--primary); */
+    margin-right: 100px;
+}
+
+.account-form-input{
+    position: relative;
+    width: 90%;
+    height: 50px;
+    /* margin: 10px; */
+    border: 0;
+    transition: all 100ms ease;
+    /* align-self: center; */
+    /* justify-self: center; */
+    
+    border-radius: 50px;
+    background-color: var(--dark);
+    /* background: none; */
+    /* border: 3px solid var(--dark); */
+    /* border-bottom: 3px solid var(--dark); */
+}
+.account-form-input:focus{
+    outline: none !important;
+
+    border: 3px solid var(--primary);
+
+
+}
+.account-form-submit-con span a{
+    /* position: absolute; */
+    cursor: pointer;
+    justify-self: center;
+    text-align: center;
+    color: var(--primary);
+    /* text-decoration: underline; */
+    /* text-decoration: none;  */
+    /* margin-bottom: 50px; */
+
+    text-decoration: underline;
+
+    /* transition: all 200ms ease; */
+}
+.account-form-submit-con span a:hover{
+    color:  var(--primary);
+    filter: brightness(0.8);
+    text-decoration: underline;
+
+}
+.account-form-submit{
+    background-color: var(--primary);
+
+        width: 90%;
+        height: 60px;
+        font-size: 1.5rem;
+        /* align-self: flex-end; */
+        /* position: absolute; */
+        align-self: center;
+        /* margin-bottom: 200px; */
+        border-radius: 100px;
+        margin-top: 40px;
+        border: none;
+        margin-bottom: 10px;
+        /* justify-self: flex-end; */
+}
+.account-form-submit-con{
+    position: absolute;
+    width: 100%;
+    /* height: 40%; */
+    /* height: 30%; */
+    display: flex;  
+    bottom: 100px;
+    /* margin-top: 30px; */
+    justify-content: center;
+    flex-direction: column;
+    align-self: flex-end;
+    justify-self: flex-end;
+}
+.account-form-icons{
+    font-size: 18px;
+    align-self: center;
+    color: var(--primary);
+}
+.account-form-submit-con span{
+    text-align: center;
+    position: relative;
+display: flex;
+flex-direction: column;
+}
+.account-form-input-con{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.account-form-input-con label{
+    font-size: 15px;
+    z-index: 1;
+    margin-top: 20px;
+    margin-left: 15px;
+display: flex;
+align-items: flex-end;
+    /* align-self: flex-start; */
+    width: 90%;
+}
+.account-form-input-con label span{
+display: flex;
+align-items: center;
+    /* align-self: flex-start; */
+    width: 90%;
+}
+
+.account-form-big-circle{
+    pointer-events:none; 
+    position: absolute;
+    border-radius: 100%;
+    top: 0;
+    /* padding: 10px; */
+    border-radius: 50vh;
+    align-self: center;
+    /* border-bottom-right-radius: 0; */
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    /* margin-left: 90px; */
+    text-align: center;
+    /* margin-top: 30px; */
+    background-color: var(--primary);
+    width: 30%;
+    height: 30%;
+    /* top: 0; */
+    align-self: flex-start;
+    align-items: center;
+    justify-self: flex-end;
+    /* justify-content: center; */
+    transition:  200ms ease-out;
+}
