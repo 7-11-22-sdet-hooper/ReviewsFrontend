@@ -10,21 +10,21 @@ const Card = () => {
 
     useEffect(() => {
 
-        axios.get('http://137.184.139.89/vocab', 
-        {
-            headers: 
-            {
-            "Access-Control-Allow-Origin": "*",
-            }
-    })
-        .then(res =>{
-            setVocabData([...res.data])
-            console.log(res)
-        })
-        .catch(err =>{
-            console.log(err)
-        })
-
+    //     axios.get('http://137.184.139.89/vocab', 
+    //     {
+    //         headers: 
+    //         {
+    //         "Access-Control-Allow-Origin": "*",
+    //         }
+    // })
+    //     .then(res =>{
+    //         setVocabData([...res.data])
+    //         console.log(res)
+    //     })
+    //     .catch(err =>{
+    //         console.log(err)
+    //     })
+    setVocabData([...dumm])
 
     }, [])
 
