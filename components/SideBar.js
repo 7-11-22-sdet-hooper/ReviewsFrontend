@@ -1,17 +1,24 @@
 import { BsCardText } from "react-icons/bs";
 import { MdOutlineQuiz } from "react-icons/md";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from 'next/router'
 
-const SideBar = () =>{
+const SideBar = (props) =>{
 const [showLinks, setShowLinks] = useState(null)
+const [currentPath, setCurrentPath] = useState("")
+const { asPath } = useRouter()
 
     const toggleLinks = (e) =>{
         e.preventDefault()
 
         setShowLinks((state) => !state)
     }
+    useEffect(() =>{
+        setCurrentPath(asPath)
 
+        
+    },[])
     return(
         <div className="sidebar-con">
 
@@ -20,22 +27,25 @@ const [showLinks, setShowLinks] = useState(null)
             <h1 id="sidebar-header-two">App</h1>
             </span>
             
-
-                <a className="sidebar-list-con active">
+                <Link href="/">
+                <a className={currentPath == "/" ? "sidebar-list-con active" : "sidebar-list-con"} >
                     <span className="sidebar-list-span">
                 <BsCardText />
                 <h3 className="sidebar-list">Cards</h3>
 
                     </span>
                 </a>
+                </Link>
 
-                <a  className="sidebar-list-con">
+                <Link href="quiz"> 
+                <a className={currentPath == "/quiz" ? "sidebar-list-con active" : "sidebar-list-con"}>
                     <span className="sidebar-list-span">
                 <MdOutlineQuiz />
                 <h3 className="sidebar-list">Quiz</h3>
 
                     </span>
                 </a>
+                </Link>
 
 
                { showLinks ? <div className="sidebar-acc-links-con">
