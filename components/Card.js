@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 
 import { HiOutlineArrowRight } from "react-icons/hi";
+import { cardDummyData } from "./DummyData";
 
 const Card = () => {
 
@@ -10,21 +11,22 @@ const Card = () => {
 
     useEffect(() => {
 
-        axios.get('http://137.184.139.89/vocab', 
-        {
-            headers: 
-            {
-            "Access-Control-Allow-Origin": "*",
-            }
-    })
-        .then(res =>{
-            setVocabData([...res.data])
-            console.log(res)
-        })
-        .catch(err =>{
-            console.log(err)
-        })
+    //     axios.get('http://137.184.139.89/vocab', 
+    //     {
+    //         headers: 
+    //         {
+    //         "Access-Control-Allow-Origin": "*",
+    //         }
+    // })
+    //     .then(res =>{
+    //         setVocabData([...res.data])
+    //         console.log(res)
+    //     })
+    //     .catch(err =>{
+    //         console.log(err)
+    //     })
 
+    setVocabData([...cardDummyData])
 
     }, [])
 
@@ -45,10 +47,10 @@ const Card = () => {
             
             {vocabData.map(keys => {
                 return (
-                    <div className="card" key={keys.word + keys.vocab_id + ''} onClick={toggleCard} id={keys.vocab_id}>
+                    <div className="card" key={keys.category  + keys.vocab_id + ''} onClick={toggleCard} id={keys.category + keys.vocab_id}>
 
 
-                        {cardId == keys.vocab_id ? '' :
+                        {cardId == keys.category  + keys.vocab_id ? '' :
                             <div className="card-keyword-con">
 
                                 <h1 className={cardId == keys.vocab_id ? "card-active card-keyword" : 'card-keyword'}>{keys.word}</h1>
@@ -57,12 +59,12 @@ const Card = () => {
                         }
 
 
-                        <div className={cardId == keys.vocab_id ? "active-circle-con" : 'circle-con'}>
+                        <div className={cardId == keys.category  +  keys.vocab_id ? "active-circle-con" : 'circle-con'}>
 
 
-                            <div className={cardId == keys.vocab_id ? "active-circle" : 'big-circle'}>
-                            {/* <HiOutlineArrowRight className="circle-arrow"/> */}
-                            {cardId == keys.vocab_id ? 
+                            <div className={cardId == keys.category  +  keys.vocab_id ? "active-circle" : 'big-circle'}>
+                            
+                            {cardId == keys.category +  keys.vocab_id ? 
                             <div className="card-keyword-con">
 
                                 <h1 className="card-active-keyword card-keyword" >{keys.word}</h1>
@@ -71,7 +73,7 @@ const Card = () => {
 
                             }
                             </div>
-                            <p className="card-def">{cardId == keys.vocab_id ? keys.wordDefinition : ''} </p>
+                            <p className="card-def">{cardId == keys.category  +  keys.vocab_id ? keys.wordDefinition : ''} </p>
 
                         </div>
 
