@@ -19,7 +19,14 @@ const Quiz = () =>{
     const toggleChoice = (e) =>{
         e.preventDefault()
 
-        setCurrentChoice(e.target.value)
+        const selection = e.target.value || e.target.parentElement.value || e.target.parentElement.parentElement.value
+
+        if(currentChoice == selection){
+            setCurrentChoice(null) 
+          
+        }else{
+            setCurrentChoice(selection)
+        }
     }
 
     const nextQuestion = (e) =>{
@@ -42,7 +49,13 @@ const Quiz = () =>{
                         if(currentQuestion == idx){
                             return(
                                 <div className="quiz-form-con" key={quiz.question + "con" + idx}>
-                                    <h3 className="quiz-question" key={quiz.question + idx}>{quiz.question}</h3>
+                                    <div className="quiz-question-con">
+
+
+                                    <h3 className="quiz-question" key={quiz.question + idx}>
+                                        {quiz.question}
+                                        </h3>
+                                    </div>
 
 
                                     <div className="quiz-curr-question-con" key={"quiz-curr-question-con" + idx}>
@@ -53,7 +66,7 @@ const Quiz = () =>{
                                         return(
                                             
                                             <button
-                                            className={currentChoice == choice.answer ? "quiz-selection" : "quiz-answer"} 
+                                            className={ currentChoice == choice.answer ? "quiz-selection" : "quiz-answer"} 
                                          
                                             key={"quiz-selection" + idx} 
                                             onClick={toggleChoice} 

@@ -29,7 +29,7 @@ const { asPath } = useRouter()
             
                 <Link href="/">
                 <a className={currentPath == "/" ? "sidebar-list-con active" : "sidebar-list-con"} >
-                    <span className="sidebar-list-span">
+                    <span className={currentPath == "/" ? "span-active" : "sidebar-list-span"}>
                 <BsCardText />
                 <h3 className="sidebar-list">Cards</h3>
 
@@ -39,7 +39,7 @@ const { asPath } = useRouter()
 
                 <Link href="quiz"> 
                 <a className={currentPath == "/quiz" ? "sidebar-list-con active" : "sidebar-list-con"}>
-                    <span className="sidebar-list-span">
+                    <span className={currentPath == "/quiz" ? "span-active" : "sidebar-list-span"}>
                 <MdOutlineQuiz />
                 <h3 className="sidebar-list">Quiz</h3>
 

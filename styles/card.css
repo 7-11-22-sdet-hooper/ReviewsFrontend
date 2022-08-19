@@ -6,16 +6,17 @@
 }
 .card-con{
     /* min-width: 0; */
-    position: relative;
+    position: absolute;
 
     display: flex;
-    width: 100%;
     height: 100%;
+    width: calc(100% - 15rem);
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
     word-wrap: break-word;
-    /* overflow: scroll; */
+    left: 15rem;
+    overflow-x: hidden;
 }
 
 .card{
@@ -216,4 +217,20 @@ border-bottom-left-radius: 0;
     line-height: 1em; 
     max-height: 2em; /* a x number of line to show (ex : 2 line)  */
     background-color: var(--primary);
+}
+
+/* Small Screens */
+@media only screen and (max-width: 600px){
+    
+    .card-con{
+        width: 100vw;
+        left: 0;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+/* Large Screens */
+@media only screen and (min-width: 600px){
+    
+  
 }

@@ -66,43 +66,61 @@ input[type=checkbox]{
 
 .quiz-form-con{
     position: relative;
-    width: 70%;
-    height: 70%;
+    width: 850px;
+    height: 750px;
     background-color: var(--light);
     display: flex;
+    overflow: hidden;
     align-items: center;
     justify-content: flex-start;
     /* padding: 20px;/ */
     flex-direction: column;
 }
 
-.quiz-question{
+.quiz-question-con{
     position: relative;
     top: 0;
-    font-size: 2rem;
+    overflow-wrap: break-word;
+    font-size: 1.5rem;
     text-align: center;
     background-color: var(--primary);
-    width: 100%;
-    align-self: flex-start;
+    width: 120%;
+    overflow: hidden;
+    align-self: center;
     display: flex;
     justify-content: center;
     /* height: min-content;  */
-    height: 15%;
+    height: 150%;
+    border-radius: 100%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
     align-items: center;
+    justify-content: center;
     margin: 0;
     font-family: Poppins;
-
+    overflow-wrap: break-word;
 }
+.quiz-question{
 
+    position: relative;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    justify-self: center;
+    height: 100%;
+}
 .quiz-answer-con{
     position: relative;
-    height: 85%;
+    height: calc(100% - 100px);
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
     margin-top: 20px;
+
 }
 .quiz-answer{
     position: relative;
@@ -117,7 +135,6 @@ input[type=checkbox]{
     background-color: var(--dark);
     margin: 10px;
     padding: 10px;
-   
     z-index: 1;
     transition: all 200ms ease;
 }
@@ -159,6 +176,12 @@ input[type=checkbox]{
 .quiz-selection label{
 
 }
+
+.quiz-selection-check{
+    font-size: 1rem;
+    align-self: center;
+    justify-self: center;
+}
 .quiz-selection-circle-con{
     position: relative;
     display: flex;
@@ -171,29 +194,27 @@ input[type=checkbox]{
     margin: 10px;
 }
 
-.quiz-selection-check{
-    font-size: 1rem;
-    align-self: center;
-    justify-self: center;
-}
-
 .quiz-selection-inner-circle{
-    position: relative;
-    width: 50%;
-    height: 50%;
-    border: 8px solid white;
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    /* margin: 8px; */
+    /* border: 8px solid white; */
     /* align-self: center; */
     /* justify-self: center; */
     background-color: white;
-    border-radius: 100px;
+    border-radius: 100%;
 }
 
 .quiz-button-con{
     position: relative;
-    width: 100%;
-    height: 40%;
+    width: 100%;    
+    /* height: 60px; */
+    /* height: 100%; */
     display: flex;
+    padding: 60px;
     align-items: flex-end;
+    justify-content: space-between;
     /* flex-direction: row; */
 }
 
@@ -205,13 +226,14 @@ input[type=checkbox]{
     height: 60px;
     border-radius: 10px;
     margin: 30px;
-    margin-top: 0px;
-    float: right;
+    /* margin-top: 0px; */
     right: 0;
-    align-self: flex-end;
-    justify-self: center;
-    font-weight:bold;
+    bottom: 0;
+    /* align-self: flex-end; */
     font-family: Poppins;
+
+    /* justify-self: flex-end; */
+    font-weight:bold;
 
 }
 #quiz-back-button{
@@ -230,4 +252,64 @@ input[type=checkbox]{
 
     justify-self: center;
     font-weight:bold;
+}
+
+
+/* Small Screens */
+@media only screen and (max-width: 600px){
+    
+    .quiz-con{
+        position: relative;
+        width: 100vw;
+        margin: 0;
+        height: 100vh;
+        left: 0;
+        display: flex;
+        /* flex: 1 1; */
+        flex-direction: row;
+    }
+
+    .quiz-form-con{
+        position: relative;
+        top: 0;
+        
+        height: calc(100% - 5rem);
+        margin-bottom: 5rem;
+    }
+
+    .quiz-question{
+        top: 0;
+        font-size: 1.5rem;
+    }
+    .quiz-question-con{
+        height: 150%;
+    }
+
+    .quiz-answer{
+        position: relative;
+        /* flex: 1 1 160px; */
+
+
+    }
+    .quiz-selection{
+        position: relative;
+
+    }
+    .quiz-answer-con{
+        display: flex;
+        height: 100%;
+        /* align-content: flceecex-start; */
+        margin-bottom: 60px;
+        align-content: center;
+        /* flex-wrap: wrap; */
+       /* gap: rem; */
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+    }
+}
+/* Large Screens */
+@media only screen and (min-width: 600px){
+    
+  
 }
