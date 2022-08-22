@@ -9,7 +9,7 @@ const Quiz = () =>{
 
     const [quizData, setQuizData] = useState([])
     const [currentQuestion, setCurrentQuestion] = useState(0)
-    const [currentChoice, setCurrentChoice] = useState(null)
+    const [currentChoices, setCurrentChoices] = useState([])
 
     useEffect(() =>{
         
@@ -21,11 +21,11 @@ const Quiz = () =>{
 
         const selection = e.target.value || e.target.parentElement.value || e.target.parentElement.parentElement.value
 
-        if(currentChoice == selection){
-            setCurrentChoice(null) 
+        if(currentChoices.includes(selection) ){
+            setCurrentChoices([]) 
           
         }else{
-            setCurrentChoice(selection)
+            setCurrentChoices([...currentChoices, selection])
         }
     }
 
@@ -66,7 +66,7 @@ const Quiz = () =>{
                                         return(
                                             
                                             <button
-                                            className={ currentChoice == choice.answer ? "quiz-selection" : "quiz-answer"} 
+                                            className={ currentChoices.includes(choice.answer)  ? "quiz-selection" : "quiz-answer"} 
                                          
                                             key={"quiz-selection" + idx} 
                                             onClick={toggleChoice} 
@@ -76,7 +76,7 @@ const Quiz = () =>{
                                             <div className="quiz-selection-circle-con">
                                                 {/* Renders inner circle on selection */}
                                                    
-                                                    {currentChoice == choice.answer ?   
+                                                    { currentChoices.includes(choice.answer)  ?   
                                                     <div className="quiz-selection-inner-circle" key={"quiz-selection-inner-circle" + idx} /> 
                                                     : null}
 
