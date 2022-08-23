@@ -11,7 +11,7 @@ const Card = () => {
 
     useEffect(() => {
 
-        axios.get('https://test.javalearninglab.com/vocab', 
+        axios.get('https://test.javalearninglab.com/api/vocab', 
         {
             headers: 
             {

@@ -21,7 +21,19 @@ const Quiz = () =>{
 
     
     useEffect(() =>{
-    
+    //     axios.get('https://test.javalearninglab.com/api/quiz', 
+    //     {
+    //         headers: 
+    //         {
+    //         "Access-Control-Allow-Origin": "*",
+    //         }
+    // })
+    //     .then(res =>{
+    //         setVocabData([...res.data])
+    //     })
+    //     .catch(err =>{
+    //         console.log(err)
+    //     })
 
         setQuizData([...quizDummyData])
     },[])

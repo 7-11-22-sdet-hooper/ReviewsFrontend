@@ -47,6 +47,29 @@
                 ]
 
             },
+            {
+                question: "This is NOT a java data type",
+                choices: 
+                [
+                    {
+                        answer: 'String',
+                        isCorrect: false,
+                    },
+                    {
+                        answer: 'int',
+                        isCorrect: false,
+                    },
+                    {
+                        answer: 'const',
+                        isCorrect: true,
+                    },
+                    {
+                        answer: 'boolean',
+                        isCorrect: false,
+                    },
+                ]
+
+            },
 
     ]
 
