@@ -11,21 +11,21 @@ const Card = () => {
 
     useEffect(() => {
 
-        axios.get('https://test.javalearninglab.com/api/vocab', 
-        {
-            headers: 
-            {
-            "Access-Control-Allow-Origin": "*",
-            }
-    })
-        .then(res =>{
-            setVocabData([...res.data])
-        })
-        .catch(err =>{
-            console.log(err)
-        })
+                                                                                            //     axios.get('https://test.javalearninglab.com/api/vocab', 
+                                                                                            //     {
+                                                                                            //         headers: 
+                                                                                            //         {
+                                                                                            //         "Access-Control-Allow-Origin": "*",
+                                                                                            //         }
+                                                                                            // })
+                                                                                            //     .then(res =>{
+                                                                                            //         setVocabData([...res.data])
+                                                                                            //     })
+                                                                                            //     .catch(err =>{
+                                                                                            //         console.log(err)
+                                                                                            //     })
 
-    // setVocabData([...cardDummyData]) 
+    setVocabData([...cardDummyData]) 
 
     }, [])
 

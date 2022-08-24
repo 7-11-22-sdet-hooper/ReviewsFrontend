@@ -1,7 +1,8 @@
 :root{
 
      --primary: #9F42E9;
-    --secondary: #b267ed;
+    --prim-light: #b267ed;
+    --prim-lighter: #bb7aef;
     --dark: #161618;
     --light: #222225;
     --text:   #e7e9ea;
@@ -19,6 +20,7 @@ button{
 .quiz-choice{
     font-size: 1.3rem;
     font-family: Poppins;
+    color: white;
     font-weight: bold;
 }
 .quiz-con{
@@ -240,8 +242,6 @@ input[type=checkbox]{
     width: 25px;
     height: 25px;
     margin: 5px;
-
-
 }
 
 
@@ -302,15 +302,20 @@ input[type=checkbox]{
     height: 60px;
     border-radius: 10px;
     margin: 30px;
-    /* margin-top: 0px; */
     right: 0;
     bottom: 0;
-    /* align-self: flex-end; */
     font-family: Poppins;
-
-    /* justify-self: flex-end; */
     font-weight:bold;
 
+    transition: all 200ms ease;
+}
+#quiz-next-button:hover{
+    background-color: #8f3bd1;
+}
+.quiz-tryagain-con{
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 #quiz-tryagain-button{
     position: absolute;
@@ -384,10 +389,49 @@ input[type=checkbox]{
     font-weight:bold;
 }
 
-.quiz-results-con{
-    width: 100%;
-    height: 100%;
+.quiz-results-outer{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--prim-lighter);
+   background: conic-gradient();
 }
+.quiz-results-outer::before{
+    content: '';
+    position: absolute;
+    width: 84%;
+    height: 84%;
+    display: flex;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--primary);
+   /* background: conic-gradient(); */
+}
+.quiz-results-inner{
+    position: relative;
+
+}
+
+#quiz-results-percent{
+    position: relative;
+    margin: 0px;
+}
+#quiz-results-subtitle{
+    position: relative;
+    margin: 0px;
+    
+}
+
+
 /* Small Screens */
 @media only screen and (max-width: 600px){
     

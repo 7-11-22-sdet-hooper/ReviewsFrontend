@@ -63,7 +63,8 @@ reducers:{
 
         }
     }
-        const user_score = 100 / question_amount * amountRight
+        const user_score = Math.round(100 / question_amount * amountRight ) 
+        // const user_score = 100 / question_amount * amountRight 
         
     
         state.correct_answers = solutionArr
