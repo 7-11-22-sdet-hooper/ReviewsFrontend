@@ -36,7 +36,6 @@ const { asPath } = useRouter()
                     </span>
                 </a>
                 </Link>
-
                 <Link href="quiz"> 
                 <a className={currentPath == "/quiz" ? "sidebar-list-con active" : "sidebar-list-con"}>
                     <span className={currentPath == "/quiz" ? "span-active" : "sidebar-list-span"}>
