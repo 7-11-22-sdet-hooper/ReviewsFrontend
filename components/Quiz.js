@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-
+import axios from "axios";
 import { ImCross } from "react-icons/im";
 import { ImCheckmark } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,21 +21,21 @@ const Quiz = () => {
 
 
     useEffect(() => {
-        //     axios.get('https://test.javalearninglab.com/api/quiz', 
-        //     {
-        //         headers: 
-        //         {
-        //         "Access-Control-Allow-Origin": "*",
-        //         }
-        // })
-        //     .then(res =>{
-        //         setVocabData([...res.data])
-        //     })
-        //     .catch(err =>{
-        //         console.log(err)
-        //     })
+            axios.get('https://test.javalearninglab.com/api/quiz', 
+            {
+                headers: 
+                {
+                "Access-Control-Allow-Origin": "*",
+                }
+        })
+            .then(res =>{
+                setQuizData([...res.data])
+            })
+            .catch(err =>{
+                console.log(err)
+            })
 
-        setQuizData([...quizDummyData])
+        // setQuizData([...quizDummyData])
     }, [])
 
     const toggleChoice = (e, isCorrect, questionNum) => {
@@ -104,19 +104,19 @@ const Quiz = () => {
                                                         //if submitted, checks if answer chose is the correct answer
                                                         choice.isCorrect ?
                                                             'quiz-right-answer' :
-                                                            quiz_selections.includes(choice.answer) ?
+                                                            quiz_selections.includes(choice.question) ?
 
                                                                 'quiz-wrong-answer'
                                                                 : "quiz-selection-grayed"
 
-                                                        : quiz_selections.includes(choice.answer) ? "quiz-selection" : "quiz-answer"
+                                                        : quiz_selections.includes(choice.question) ? "quiz-selection" : "quiz-answer"
                                                 }
                                                 disabled={isDone}
 
                                                 key={"quiz-selection" + idx}
                                                 onClick={event => toggleChoice(event, choice.isCorrect, questionNum)}
-                                                value={choice.answer}
-                                                id={"quiz-selection" + choice.answer}>
+                                                value={choice.question}
+                                                id={"quiz-selection" + choice.question}>
 
                                                 {
                                                     //checks if quiz is done
@@ -125,7 +125,7 @@ const Quiz = () => {
                                                         //checks if selections include answer 
 
                                                         choice.isCorrect ? <ImCheckmark id="quiz-right-icon" /> :
-                                                            quiz_selections.includes(choice.answer) ?
+                                                            quiz_selections.includes(choice.question) ?
                                                                 <ImCross id="quiz-wrong-icon" />
                                                                 //if selections dont include answer dont show X or Checkmark
                                                                 : ''
@@ -133,14 +133,14 @@ const Quiz = () => {
                                                         : <div className="quiz-selection-circle-con">
                                                             {/* Renders inner circle on selection */}
 
-                                                            {quiz_selections.includes(choice.answer) ?
+                                                            {quiz_selections.includes(choice.question) ?
                                                                 <div className="quiz-selection-inner-circle" key={"quiz-selection-inner-circle" + idx} />
                                                                 : null}
 
                                                         </div>
                                                 }
-                            
-                                                <p key={"quiz-selection-label" + idx} className="quiz-choice" id={"quiz-choice" + idx}>{choice.answer}</p>
+
+                                                <p key={"quiz-selection-label" + idx} className="quiz-choice" id={"quiz-choice" + idx}>{choice.question}</p>
                                             </button>
                                         )
                                     })}
