@@ -4,6 +4,7 @@ import '../styles/card.css'
 import '../styles/sidebar.css'
 import '../styles/account.css'
 import '../styles/quiz.css'
+import '../styles/expand.css'
 import { wrapper } from '../store'
 
 function MyApp({ Component, pageProps }) {
