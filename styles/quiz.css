@@ -424,6 +424,12 @@ input[type=checkbox]{
     font-weight:bold;
 
 }
+
+#quiz-submit-button:disabled,
+#quiz-submit-button[disabled]{
+    color:#161618;
+    cursor: not-allowed;
+}
 #quiz-results-button{
     position: absolute;
     background-color: var(--primary);
