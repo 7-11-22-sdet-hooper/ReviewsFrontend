@@ -22,10 +22,17 @@ const vocabSlice = createSlice({
     name: 'vocab',
     initialState: {
         vocab_data: [],
+        current_category: 'all',
         isLoading: false,
         error: '',
     },
     reducers: {
+
+        setCurrentCategory(state, action){
+
+
+            state.current_category = action.payload
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(fetchVocabData.pending, (state) => {
@@ -46,5 +53,5 @@ const vocabSlice = createSlice({
 })
 
 
-export const { getCardData } = vocabSlice.actions
+export const { getCardData, setCurrentCategory} = vocabSlice.actions
 export default vocabSlice.reducer

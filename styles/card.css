@@ -5,28 +5,45 @@
     --dark: #161618;
     --light: #222225;
 }
-.card-con{
+.card-view-con{
     /* min-width: 0; */
     position: absolute;
 
     display: flex;
     height: 100%;
     width: calc(100% - 15rem);
-    justify-content: flex-start;
+    flex-direction: row;
+    left: 15rem;
+    overflow-x: hidden;
+    justify-content: center;
+    overflow-y: scroll;
+}
+.card-con{
+    
+    position: relative;
+    overflow-y: scroll;
+    width: 100%;
+    height: calc(100% - 60px);
+    margin-top: 60px;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-between; */
     flex-direction: row;
     flex-wrap: wrap;
     word-wrap: break-word;
-    left: 15rem;
-    overflow-x: hidden;
-}
+    align-self: flex-start;
+    justify-self: center;
 
+    /* padding: 50px; */
+}
 .card{
    position: relative;
    cursor: pointer;
     height: 300px;
     width: 230px;
     background-color: var(--dark);
-    margin: 20px;
+    margin: 30px;
     border-radius: 15px;
     /* overflow: hidden; */
     display: flex;
@@ -37,6 +54,8 @@
     /* overflow: hidden; */
     text-overflow: ellipsis;
     word-wrap: break-word;
+    justify-self: flex-start;
+    align-self: flex-start;
     /* display: block; */
 }
 
@@ -223,11 +242,19 @@ border-bottom-left-radius: 0;
 /* Small Screens */
 @media only screen and (max-width: 600px){
     
-    .card-con{
-        width: 100vw;
+    .card-view-con{
+        width: 100%;
         left: 0;
+        display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        /* justify-content: space-around; */
+    }
+
+    .card-con{
+        justify-content: center;
+        margin-bottom: 80px;
+        margin-top: 60px;
+        gap: 20px;
     }
 }
 /* Large Screens */

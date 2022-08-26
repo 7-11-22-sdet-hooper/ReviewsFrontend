@@ -3,7 +3,8 @@ import { useEffect, useState } from "react"
 
 import { HiOutlineArrowRight } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchVocabData } from "../slices/vocabSlice";
+import { fetchVocabData, setCurrentCategory } from "../slices/vocabSlice";
+import CardNavBar from "./CardNavBar";
 import { cardDummyData } from "./DummyData";
 
 const Card = () => {
@@ -13,6 +14,7 @@ const Card = () => {
 
     const dispatch = useDispatch()
     const vocabData = useSelector((state) => state.vocabSlice.vocab_data)
+    const currentCategory = useSelector((state) => state.vocabSlice.current_category)
 
     useEffect(() => {
 
@@ -20,6 +22,8 @@ const Card = () => {
 
         dispatch(fetchVocabData())
         // setVocabData([...cardDummyData])
+
+        
         
     }, [])
 
@@ -36,9 +40,11 @@ const Card = () => {
     }
 
     return (
-        <div className="card-con"  >
-
+        <div className="card-view-con"  >
+            <CardNavBar />
+            <div className="card-con">
             {vocabData.map(keys => {
+                if(currentCategory == 'all' || keys.category.name == currentCategory){
                 return (
                     <div className="card" key={keys.category.name + keys.id + ''} onClick={toggleCard} id={keys.category.name + keys.id}>
 
@@ -74,7 +80,12 @@ const Card = () => {
 
                     </div>
                 )
+
+            }
+
+
             })}
+            </div>
         </div>
     )
 }

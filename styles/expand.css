@@ -25,21 +25,19 @@
 .expand-def-con{
 
     position: relative;
-    /* background-color: var(--light); */
 
     background-color: var(--primary);
 
-    /* background-image: radial-gradient(
-        var(--dark) 10px,
-         transparent 10px
-     ); */
+ 
     display: flex;
     align-items: center;
     justify-content: center;
+
      background-image: radial-gradient(var(--dark) 20%, transparent 20%),
      radial-gradient(var(--dark)  20%, transparent 20%);
      background-position: 0 0, 50px 50px;
      background-size: 100px 100px;
+     
     width: 50%;
     height: 400px;
     opacity: 100%;
