@@ -261,7 +261,7 @@ input[type=checkbox]{
     width: 20px;
     height: 20px;
     margin: 5px;
-
+    
 
 }
 #quiz-right-icon{
@@ -333,7 +333,7 @@ input[type=checkbox]{
     bottom: 0;
     font-family: Poppins;
     font-weight:bold;
-
+    color: white;
     transition: all 200ms ease;
 }
 #quiz-next-button:hover{
@@ -352,6 +352,7 @@ input[type=checkbox]{
     height: 60px;
     border-radius: 10px;
     margin: 30px;
+    color: white;
     /* margin-top: 0px; */
     /* right: 0; */
     bottom: 0;
@@ -373,6 +374,7 @@ input[type=checkbox]{
     /* margin-top: 0px; */
     right: 0;
     bottom: 0;
+    color: white;
     /* align-self: flex-end; */
     font-family: Poppins;
 
@@ -391,6 +393,7 @@ input[type=checkbox]{
     /* margin-top: 0px; */
     right: 0;
     bottom: 0;
+    color: white;
     /* align-self: flex-end; */
     font-family: Poppins;
 
@@ -413,6 +416,7 @@ input[type=checkbox]{
     font-family: Poppins;
 
     justify-self: center;
+    color: white;
     font-weight:bold;
 }
 
