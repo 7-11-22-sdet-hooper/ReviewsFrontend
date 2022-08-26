@@ -6,36 +6,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { quizDummyData } from "./DummyData";
 import SideBar from "./SideBar";
 import { retryQuiz, setIsDone, setQuestionNum, setSelections } from "../slices/quizSlice";
+const cssRoot = {
+
+    'success': '#54CD7D',
+   'fail': '#E57A73',
+
+    'success_darker': '#43A464',
+   'fail_darker': '#A05551',
+   primary: '#9F42E9',
+   prim_darker: '#6f2ea3',
+   prim_light: '#b267ed',
+   prim_lighter: '#bb7aef',
+    dark: '#161618',
+    light: '#222225',
+   text:   '#e7e9ea'
+}
 
 const Results = () => {
 
-
-
-
-
     const dispatch = useDispatch()
     const user_score = useSelector((state) => state.quizSlice.user_score)
+    const quiz_selections = useSelector((state) => state.quizSlice.quiz_selections)
 
-    const cssRoot = {
-
-        'success': '#54CD7D',
-       'fail': '#E57A73',
-
-        'success_darker': '#43A464',
-       'fail_darker': '#A05551',
-       primary: '#9F42E9',
-       prim_darker: '#6f2ea3',
-       prim_light: '#b267ed',
-       prim_lighter: '#bb7aef',
-        dark: '#161618',
-        light: '#222225',
-       text:   '#e7e9ea'
-   }
 
     useEffect(() => {
 
         ;let progressBar = document.querySelector('.quiz-results-outer')
-        ;let valueContainer = document.querySelector('.quiz-results-inner')
 
 
 
@@ -77,7 +73,7 @@ const Results = () => {
             <div className="quiz-con">
                 <div className="quiz-form-con">
 
-                    <div className="quiz-question-con">
+                    <div className="quiz-results-con">
 
 
 

@@ -25,6 +25,7 @@ const Quiz = () => {
     useEffect(() => {
         dispatch(fetchQuizData())
         // setQuizData([...quizDummyData])
+
     }, [])
 
     const toggleChoice = (e, isCorrect, questionNum) => {
@@ -51,7 +52,7 @@ const Quiz = () => {
 
     const submitQuiz = (e) => {
         e.preventDefault()
-        dispatch(setIsDone())
+        dispatch(setIsDone(quizData))
 
 
     }
@@ -115,7 +116,7 @@ const Quiz = () => {
 
                                                         : quiz_selections[current_question] == choice.question  ? "quiz-selection" : "quiz-answer"
                                                 }
-                                                disabled={isDone}
+                                                // disabled={isDone}
 
                                                 key={"quiz-selection" + idx}
                                                 onClick={event => toggleChoice(event, choice.isCorrect, questionNum)}

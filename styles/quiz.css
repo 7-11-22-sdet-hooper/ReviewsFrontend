@@ -125,6 +125,37 @@ input[type=checkbox]{
     font-family: Poppins;
     overflow-wrap: break-word;
 }
+
+.quiz-results-con{
+    position: relative;
+    top: 0;
+    overflow-wrap: break-word;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: var(--primary);
+    width: 100%;
+    overflow: hidden;
+    align-self: center;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: center;
+    /* padding: 30px; */
+    max-height: 450px; 
+    text-overflow: ellipsis;
+    font-size: 1.3vw;
+
+    /* height: min-content;  */
+    height: 100%;
+    border-radius: 100%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-family: Poppins;
+    overflow-wrap: break-word;
+}
 .quiz-question{
 
     position: relative;
@@ -333,8 +364,19 @@ input[type=checkbox]{
     bottom: 0;
     font-family: Poppins;
     font-weight:bold;
-    color: white;
+    /* color: white; */
     transition: all 200ms ease;
+}
+
+#quiz-next-button:disabled,
+#quiz-next-button[disabled]{
+    color: rgba(255, 255, 255, 0.5);
+
+}
+#quiz-next-button:disabled:hover,
+#quiz-next-button[disabled]:hover{
+    background-color: var(--primary);
+    cursor: not-allowed;
 }
 #quiz-next-button:hover{
     background-color: #8f3bd1;
@@ -431,7 +473,6 @@ input[type=checkbox]{
     flex-direction: column;
     text-align: center;
     background-color: var(--prim-lighter);
-   background: conic-gradient();
 }
 .quiz-results-outer::before{
     content: '';
@@ -455,11 +496,12 @@ input[type=checkbox]{
 #quiz-results-percent{
     position: relative;
     margin: 0px;
+    font-size: 2rem;
 }
 #quiz-results-subtitle{
     position: relative;
     margin: 0px;
-    
+    font-size: 1rem;
 }
 .quiz-question-top-con{
     position: relative;
@@ -570,6 +612,23 @@ input[type=checkbox]{
        align-items: center;
        justify-content: center;
     }
+
+    .quiz-results-con{
+
+    }
+    .quiz-results-outer{
+
+        /* height: 50%; */
+        /* width: 50%; */
+    }
+
+    #quiz-results-percent{
+        font-size: 2rem;
+    }
+    #quiz-results-subtitle{
+        font-size: 1rem;
+    }
+
 }
 /* Large Screens */
 @media only screen and (min-width: 600px){
