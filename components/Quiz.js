@@ -19,7 +19,10 @@ const Quiz = () => {
     const current_question = useSelector((state) => state.quizSlice.current_question)
     const quiz_selections = useSelector((state) => state.quizSlice.quiz_selections)
     const isDone = useSelector((state) => state.quizSlice.isDone)
+    const isReview = useSelector((state) => state.quizSlice.isReview)
     const quizData = useSelector((state) => state.quizSlice.quiz_data)
+
+
 
 
     useEffect(() => {
@@ -104,7 +107,7 @@ const Quiz = () => {
                                             <button
                                                 type={"radio"}
                                                 className={
-                                                    isDone ?
+                                                   isReview ?
 
                                                         //if submitted, checks if answer chose is the correct answer
                                                         choice.isCorrect ?
@@ -116,8 +119,7 @@ const Quiz = () => {
 
                                                         : quiz_selections[current_question] == choice.question  ? "quiz-selection" : "quiz-answer"
                                                 }
-                                                // disabled={isDone}
-
+                                                disabled={isReview}
                                                 key={"quiz-selection" + idx}
                                                 onClick={event => toggleChoice(event, choice.isCorrect, questionNum)}
                                                 value={choice.question}
@@ -126,7 +128,7 @@ const Quiz = () => {
                                                 <div>
                                                 {
                                                     //checks if quiz is done
-                                                    isDone ?
+                                                    isReview ?
 
                                                         //checks if selections include answer 
 
@@ -172,7 +174,15 @@ const Quiz = () => {
                                         <button
                                             id="quiz-submit-button"
                                             disabled={!quiz_selections[current_question] ? true : false}
-                                            onClick={submitQuiz}>Submit</button> : ''}
+                                            onClick={submitQuiz}>Submit</button> : 
+                                            isReview && !isDone && current_question == quizData.length - 1 ? 
+
+                                            <button
+                                            id="quiz-submit-button"
+                                            disabled={!quiz_selections[current_question] ? true : false}
+                                            onClick={submitQuiz}>Done</button> : ''
+                                            
+                                            }
 
 
                                     {isDone ?

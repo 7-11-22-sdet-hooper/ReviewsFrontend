@@ -5,21 +5,21 @@ import { ImCheckmark } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
 import { quizDummyData } from "./DummyData";
 import SideBar from "./SideBar";
-import { retryQuiz, setIsDone, setQuestionNum, setSelections } from "../slices/quizSlice";
+import { retryQuiz, setIsDone, setQuestionNum, setReviewQuiz, setSelections } from "../slices/quizSlice";
 const cssRoot = {
 
     'success': '#54CD7D',
-   'fail': '#E57A73',
+    'fail': '#E57A73',
 
     'success_darker': '#43A464',
-   'fail_darker': '#A05551',
-   primary: '#9F42E9',
-   prim_darker: '#6f2ea3',
-   prim_light: '#b267ed',
-   prim_lighter: '#bb7aef',
+    'fail_darker': '#A05551',
+    primary: '#9F42E9',
+    prim_darker: '#6f2ea3',
+    prim_light: '#b267ed',
+    prim_lighter: '#bb7aef',
     dark: '#161618',
     light: '#222225',
-   text:   '#e7e9ea'
+    text: '#e7e9ea'
 }
 
 const Results = () => {
@@ -31,7 +31,7 @@ const Results = () => {
 
     useEffect(() => {
 
-        ;let progressBar = document.querySelector('.quiz-results-outer')
+        ; let progressBar = document.querySelector('.quiz-results-outer')
 
 
 
@@ -39,9 +39,8 @@ const Results = () => {
         let progressEndValue = user_score
         let speed = 10
 
-        let progress = setInterval(() =>{
+        let progress = setInterval(() => {
             progressValue++
-
             // valueContainer.textContent 
             progressBar.style.background = `conic-gradient(
                 ${user_score < 70 ? cssRoot.fail : cssRoot.success} ${progressValue * 3.6}deg,
@@ -52,12 +51,12 @@ const Results = () => {
                  transparent 6px
              );`
 
-            
 
-            if(progressValue == progressEndValue){
+
+            if (progressValue == progressEndValue) {
                 clearInterval(progress)
             }
-            
+
         }, speed)
 
     }, [])
@@ -66,6 +65,12 @@ const Results = () => {
         e.preventDefault()
 
         dispatch(retryQuiz())
+
+    }
+    const reviewQuiz = (e) => {
+        e.preventDefault()
+        
+        dispatch(setReviewQuiz())
 
     }
     return (
@@ -83,7 +88,7 @@ const Results = () => {
                                 <h2 id="quiz-results-percent">{user_score}%</h2>
                                 <h4 id="quiz-results-subtitle">Your Score</h4>
                             </div>
-                           
+
                         </div>
                         {/* <h3 className="quiz-question">
                                     Results
@@ -92,9 +97,13 @@ const Results = () => {
 
                     <div className="quiz-tryagain-con">
 
+
+                        <button id="quiz-review-button"
+                            onClick={reviewQuiz}>Review</button>
+
+                        <button id="quiz-tryagain-button"
+                            onClick={tryAgain}>Play Again</button>
                     </div>
-                    <button id="quiz-tryagain-button"
-                        onClick={tryAgain}>Play Again</button>
                 </div>
             </div>
         </>

@@ -24,15 +24,18 @@ const quizSlice = createSlice({
     initialState: {
         quiz_data: [],
         quiz_selections: [],
-        current_question: 0,
-        isDone: false,
-        amount_correct: 0,
         correct_answers: [],
+        rightArr: [],
+        wrongArr: [],
+        current_question: 0,
+        amount_correct: 0,
         user_score: 0,
-        isLoading: false,
         error: '',
+        choice: '',
+        isLoading: false,
         expandDef: false,
-        choice: ''
+        isDone: false,
+        isReview: false,
     },
     reducers: {
         getQuizData(state, action) {
@@ -70,7 +73,10 @@ const quizSlice = createSlice({
             quizData.map((choice) => {
                 return (
                     choice.choices.filter((ch) => {
-                        if (ch.isCorrect) return solutionArr.push(ch.question)
+                        if (ch.isCorrect){
+
+                            return solutionArr.push(ch.question)
+                        } 
                     }
                     )
                 )
@@ -79,13 +85,12 @@ const quizSlice = createSlice({
             let question_amount = state.quiz_data.length
 
             let amountRight = 0
-
-
+           
             for (let i = 0; i < state.quiz_selections.length; i++) {
 
                 if (solutionArr[i] == state.quiz_selections[i] ) {
                     amountRight += 1
-
+                }else{
                 }
             }
             const user_score = Math.round(100 / question_amount * amountRight)
@@ -94,14 +99,22 @@ const quizSlice = createSlice({
             state.correct_answers = solutionArr
 
             state.user_score = user_score
-            state.isDone = !state.isDone
+            state.isDone = true
+
+    
 
         },
         retryQuiz(state, action) {
 
             state.current_question = 0
             state.quiz_selections = []
-            state.isDone = !state.isDone
+            state.isDone = false
+        },
+        setReviewQuiz(state, action) {
+
+            state.current_question = 0
+            state.isReview = true
+            state.isDone = false
         },
         setExpandDef(state, action) {
 
@@ -138,5 +151,5 @@ const quizSlice = createSlice({
 })
 
 
-export const { setSelections, setQuestionNum, setIsDone, retryQuiz, getQuizData, setExpandDef,autoFill} = quizSlice.actions
+export const { setSelections, setQuestionNum, setIsDone, retryQuiz, getQuizData, setExpandDef,autoFill,setReviewQuiz} = quizSlice.actions
 export default quizSlice.reducer
