@@ -7,15 +7,35 @@ import { current } from '@reduxjs/toolkit'
 
 export const fetchQuizData = createAsyncThunk(
     'quiz/fetchQuizData',
-    async () => {
-        const response = await axios.get('https://test.javalearninglab.com/api/quiz', {
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-            }
-        }
-        )
-        return response.data
+    async (url) => {
+  
+        console.log(url)
+        let response
 
+        //if using localhost
+        if(url == 'localhost'){
+
+             response = await axios.get('https://test.javalearninglab.com/api/quiz', {
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                }
+            }
+            )
+    
+        }
+
+        //if not running on localhost 
+        else{
+              response = await axios.get(`${url}/api/quiz`, {
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                }
+            }
+            )
+            
+        }
+
+        return response.data
     }
 )
 

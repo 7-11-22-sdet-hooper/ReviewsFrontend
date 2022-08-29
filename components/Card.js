@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react"
 
 import { HiOutlineArrowRight } from "react-icons/hi";
@@ -12,15 +13,23 @@ const Card = () => {
     const [cardId, setCardId] = useState(null)
     // const [vocabData, setVocabData] = useState([])
 
+    const  router  = useRouter()
+
+
     const dispatch = useDispatch()
     const vocabData = useSelector((state) => state.vocabSlice.vocab_data)
     const currentCategory = useSelector((state) => state.vocabSlice.current_category)
 
     useEffect(() => {
 
-        
+        let hostname
 
-        dispatch(fetchVocabData())
+        if (typeof window !== 'undefined') {
+             hostname = window.location.hostname;
+         }
+
+
+        dispatch(fetchVocabData(hostname))
         // setVocabData([...cardDummyData])
 
         

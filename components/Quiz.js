@@ -26,7 +26,15 @@ const Quiz = () => {
 
 
     useEffect(() => {
-        dispatch(fetchQuizData())
+
+        let hostname
+
+        if (typeof window !== 'undefined') {
+             hostname = window.location.hostname;
+         }
+
+
+        dispatch(fetchQuizData(hostname))
         // setQuizData([...quizDummyData])
 
     }, [])

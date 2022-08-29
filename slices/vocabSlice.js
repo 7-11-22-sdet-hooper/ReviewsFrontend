@@ -4,7 +4,12 @@ import axios from "axios";
 
 export const fetchVocabData = createAsyncThunk(
     'vocab/fetchVocabData',
-    async () => {
+
+    async (url) => {
+        console.log(url)
+        
+        if(url == 'localhost'){
+
         const response = await axios.get('https://test.javalearninglab.com/api/vocab', {
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -12,8 +17,18 @@ export const fetchVocabData = createAsyncThunk(
         }
         )
 
-
         return response.data
+    }else{
+         const response = await axios.get(`${url}/api/vocab`, {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+            }
+        }
+        )
+        
+        return response.data
+    }
+
 
     }
 )
