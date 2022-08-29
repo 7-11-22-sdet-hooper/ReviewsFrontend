@@ -6,9 +6,9 @@ export const fetchVocabData = createAsyncThunk(
     'vocab/fetchVocabData',
 
     async (url) => {
-        console.log(url)
-        
-        if(url == 'localhost'){
+        console.log(`${url}/api/vocab`)
+
+        if(url == 'http://localhost:3000'){
 
         const response = await axios.get('https://test.javalearninglab.com/api/vocab', {
             headers: {

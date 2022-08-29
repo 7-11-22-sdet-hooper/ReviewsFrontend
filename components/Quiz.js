@@ -30,7 +30,7 @@ const Quiz = () => {
         let hostname
 
         if (typeof window !== 'undefined') {
-             hostname = window.location.hostname;
+             hostname = window.location.origin;
          }
 
 

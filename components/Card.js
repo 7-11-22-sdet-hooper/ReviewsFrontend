@@ -25,7 +25,7 @@ const Card = () => {
         let hostname
 
         if (typeof window !== 'undefined') {
-             hostname = window.location.hostname;
+             hostname = window.location.origin;
          }
 
 

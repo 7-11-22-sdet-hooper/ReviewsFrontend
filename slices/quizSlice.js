@@ -13,7 +13,7 @@ export const fetchQuizData = createAsyncThunk(
         let response
 
         //if using localhost
-        if(url == 'localhost'){
+        if(url == 'http://localhost:3000'){
 
              response = await axios.get('https://test.javalearninglab.com/api/quiz', {
                 headers: {
