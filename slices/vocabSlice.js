@@ -8,7 +8,7 @@ export const fetchVocabData = createAsyncThunk(
     async (url) => {
         console.log(`${url}/api/vocab`)
 
-        if(url == 'http://localhost:3000'){
+        if(url == 'http://localhost:3000' || url == 'https://bespoke-scone-ba3a56.netlify.app'){
 
         const response = await axios.get('https://test.javalearninglab.com/api/vocab', {
             headers: {

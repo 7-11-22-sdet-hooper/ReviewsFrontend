@@ -13,7 +13,7 @@ export const fetchQuizData = createAsyncThunk(
         let response
 
         //if using localhost
-        if(url == 'http://localhost:3000'){
+        if(url == 'http://localhost:3000' || url == 'https://bespoke-scone-ba3a56.netlify.app'){
 
              response = await axios.get('https://test.javalearninglab.com/api/quiz', {
                 headers: {
