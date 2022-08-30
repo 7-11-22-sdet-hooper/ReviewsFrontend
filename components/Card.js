@@ -55,7 +55,7 @@ const Card = () => {
             {vocabData.map(keys => {
                 if(currentCategory == 'all' || keys.category.name == currentCategory){
                 return (
-                    <div className="card" key={keys.category.name + keys.id + ''} onClick={toggleCard} id={keys.category.name + keys.id}>
+                    <div className="card" key={keys.category.name + keys.id + ''} onClick={toggleCard} data-testid={keys.category.name + keys.id} id={keys.category.name + keys.id}>
 
 
                         {cardId == keys.category.name + keys.id  ? '' :
