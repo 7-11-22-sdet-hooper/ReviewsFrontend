@@ -5,6 +5,7 @@ import "react-redux";
 import Card from '../../components/Card'
 import  '@testing-library/jest-dom'
 import { wrapper } from '../../store';
+import { fetchVocabData } from '../../slices/vocabSlice';
 
 
 
@@ -30,9 +31,11 @@ const data = [{
     describe('Card', () =>{
         
         it('renders list of cards', () =>{
-            render(wrapper.withRedux(Card))
+            render(wrapper.withRedux(<Card />))
             
-            const testCard = screen.getByTestId('Java6')
+            
+
+            const testCard = screen.queryByTestId ('Java6')
 
             expect(testCard).toBeInTheDocument()
 
